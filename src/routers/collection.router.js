@@ -36,8 +36,10 @@ router.get("/collection/info/:collectionId", async (req, res) => {
 
 router.delete("/collection/:collectionId", auth, async (req, res) => {
   const _id = req.params.collectionId;
+  const texts = await Text.find({ group: _id }).populate("group"); //find texts from collection
+
+  if (texts) {
   try {
-    const texts = await Text.find({ group: _id }).populate("group"); //find texts from collection
     //find unique files
     const uniqueFiles = texts
       .map((item) => item.filename)
@@ -58,15 +60,18 @@ router.delete("/collection/:collectionId", auth, async (req, res) => {
           console.log("Files deleted.");
         });
       }
-      const collection = await Collection.deleteOne({ _id: _id });
-      if (!collection) {
-        return res.status(404).send();
-      }
-      res.send(collection);
     }
   } catch (e) {
     res.status(400).send(e + "error");
   }
+  }
+  const collection = await Collection.deleteOne({ _id: _id });
+
+  if (!collection) {
+    return res.status(404).send();
+  }
+  
+  res.send(collection);
 });
 
 //get collection files with id
