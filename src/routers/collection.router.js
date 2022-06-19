@@ -38,7 +38,7 @@ router.delete("/collection/:collectionId", auth, async (req, res) => {
   const _id = req.params.collectionId;
   const texts = await Text.find({ group: _id }).populate("group"); //find texts from collection
 
-  if (texts) {
+  if (texts.length > 0) {
   try {
     //find unique files
     const uniqueFiles = texts
@@ -70,7 +70,7 @@ router.delete("/collection/:collectionId", auth, async (req, res) => {
   if (!collection) {
     return res.status(404).send();
   }
-  
+
   res.send(collection);
 });
 
