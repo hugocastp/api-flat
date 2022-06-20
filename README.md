@@ -1,8 +1,11 @@
-# api-flat
-Entity annotation tool
+# Entity annotation tool (API)
+Backend realizado con NodeJS, ExpressJS y MongoDB
+
+
+# heroku deployment
+https://annotation-tool-api.herokuapp.com
 
 # Endpoints 
 https://app.swaggerhub.com/apis/HUGOCASTILLOPELAEZ/flat-api/1
 
-# Enlace de prueba
-https://annotation-tool-api.herokuapp.com
+Utilice postman para probar cada endpoint, utilice el enlace de swaggerhub como guía.
