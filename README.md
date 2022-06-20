@@ -8,4 +8,4 @@ https://annotation-tool-api.herokuapp.com
 # Endpoints 
 https://app.swaggerhub.com/apis/HUGOCASTILLOPELAEZ/flat-api/1
 
-Utilice postman para probar cada endpoint, utilice el enlace de swaggerhub como guía.
+Utilice postman para probar cada endpoint y el enlace de swaggerhub como guía.
